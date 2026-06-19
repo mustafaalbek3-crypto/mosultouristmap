@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نينوى السياحية | Nineveh Tourism</title>
+<title>خارطة الموصل السياحية | Mosul Tourism Map</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -214,15 +214,15 @@
     box-shadow: 0 12px 32px rgba(44,24,16,.13);
   }
 
-  .card-img {
-    width:100%; height:175px; object-fit:cover;
-    display:block; background: #e8dfc8;
+  .card-img-wrap {
+    width: 100%; height: 180px; position: relative; overflow: hidden; background: #e8dfc8;
   }
-  .card-img-placeholder {
-    width:100%; height:175px;
-    display:flex; align-items:center; justify-content:center;
-    font-size:3rem;
-    background: linear-gradient(135deg, #f5edd6 0%, #e8d9b5 100%);
+  .card-img {
+    width:100%; height:100%; object-fit:cover;
+    transition: transform 0.3s ease;
+  }
+  .site-card:hover .card-img {
+    transform: scale(1.05);
   }
 
   .card-body {
@@ -280,12 +280,38 @@
   }
   .stat-lbl { color:rgba(255,255,255,.55); font-size:.82rem; margin-top:4px; }
 
-  /* ── FOOTER ── */
-  footer {
+  /* ── SOCIAL & VISITOR FOOTER ── */
+  .footer-container {
     background: #100800;
-    color: rgba(255,255,255,.4);
-    text-align:center; padding:22px 20px;
-    font-size:.78rem; line-height:2;
+    color: rgba(255,255,255,.6);
+    padding: 40px 20px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+  .social-links {
+    display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;
+  }
+  .social-icon {
+    display: flex; align-items: center; gap: 8px;
+    color: var(--gold-lt); text-decoration: none; font-size: 0.85rem;
+    padding: 8px 16px; border: 1px solid rgba(201,168,76,0.3); border-radius: 20px;
+    transition: all 0.3s ease; background: rgba(255,255,255,0.02);
+  }
+  .social-icon:hover {
+    background: var(--gold); color: var(--deep); border-color: var(--gold); transform: translateY(-2px);
+  }
+  .visitor-counter {
+    background: rgba(26,15,0,0.6);
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 20px; border-radius: 30px;
+    border: 1px solid var(--border); margin-bottom: 20px;
+    font-size: 0.85rem; color: #fff;
+  }
+  .visitor-count {
+    font-family: 'Inter', sans-serif; font-weight: 700; color: var(--gold); font-size: 1.1rem;
+  }
+  footer {
+    font-size:.78rem; line-height:2; opacity: 0.7;
   }
   footer a { color:var(--gold); text-decoration:none; }
 
@@ -309,7 +335,7 @@
     overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.4);
   }
   #modal-img {
-    width:100%; height:200px; object-fit:cover; display:block;
+    width:100%; height:220px; object-fit:cover; display:block;
     background:#e8dfc8;
   }
   #modal-content { padding:24px 26px 28px; }
@@ -355,8 +381,8 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-badge" id="hero-badge">محافظة نينوى • العراق</div>
-  <h1 class="hero-title-ar" id="hero-title">نينوى</h1>
-  <p class="hero-sub" id="hero-sub">حضارة تمتد لآلاف السنين — اكتشف المواقع الأثرية والسياحية في قلب بلاد الرافدين</p>
+  <h1 class="hero-title-ar" id="hero-title">الموصل</h1>
+  <p class="hero-sub" id="hero-sub">حضارة تمتد لآلاف السنين — اكتشف المواقع الأثرية والسياحية في قلب الحدباء</p>
   <div class="hero-divider"></div>
   <div class="scroll-hint">
     <span id="scroll-txt">اكتشف المواقع</span>
@@ -397,7 +423,7 @@
 <!-- STATS -->
 <section id="stats">
   <div class="stat">
-    <span class="stat-num" id="stat-sites">38</span>
+    <span class="stat-num" id="stat-sites">6</span>
     <div class="stat-lbl" id="stat-lbl1">موقعاً سياحياً وأثرياً</div>
   </div>
   <div class="stat">
@@ -405,8 +431,8 @@
     <div class="stat-lbl" id="stat-lbl2">سنة من الحضارة</div>
   </div>
   <div class="stat">
-    <span class="stat-num">5</span>
-    <div class="stat-lbl" id="stat-lbl3">أقضية مغطّاة</div>
+    <span class="stat-num">2</span>
+    <div class="stat-lbl" id="stat-lbl3">جانبي المدينة (الأيمن والأيسر)</div>
   </div>
   <div class="stat">
     <span class="stat-num">UNESCO</span>
@@ -414,17 +440,42 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div id="footer-txt">جميع الحقوق محفوظة © نينوى السياحية 2025 — تفتح الخرائط في تطبيق Google Maps</div>
-</footer>
+<!-- FOOTER WITH SOCIALS AND VISITOR COUNTER -->
+<div class="footer-container">
+  
+  <!-- VISITOR COUNTER -->
+  <div class="visitor-counter">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+    <span id="visitor-title">عدد زوار الموقع:</span>
+    <span id="visitor-count" class="visitor-count">1,240</span>
+  </div>
+
+  <!-- SOCIAL LINKS -->
+  <div class="social-links">
+    <!-- استبدل روابط '#' بروابط حساباتك الحقيقية -->
+    <a href="#" target="_blank" class="social-icon">
+      Facebook
+    </a>
+    <a href="#" target="_blank" class="social-icon">
+      X (Twitter)
+    </a>
+    <a href="#" target="_blank" class="social-icon">
+      Instagram
+    </a>
+    <a href="#" target="_blank" class="social-icon">
+      LinkedIn
+    </a>
+  </div>
+
+  <footer>
+    <div id="footer-txt">جميع الحقوق محفوظة © نينوى السياحية 2026 — تفتح الخرائط في تطبيق Google Maps</div>
+  </footer>
+</div>
 
 <!-- MODAL -->
 <div id="modal-overlay" onclick="closeModal(event)">
   <div id="modal-box">
-    <div id="modal-img-wrap">
-      <div id="modal-emoji" style="width:100%;height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;background:linear-gradient(135deg,#f5edd6,#e8d9b5)"></div>
-    </div>
+    <img id="modal-img" src="" alt="Site Image">
     <div id="modal-content">
       <div id="modal-cat"></div>
       <div id="modal-name"></div>
@@ -443,245 +494,50 @@
 
 <script>
 /* ═══════════════════════════════════════════
-   DATA — All Nineveh Sites
+   DATA — Mosul Sites (Updated with real Images)
 ═══════════════════════════════════════════ */
 const SITES = [
-  /* ── ARCHAEOLOGICAL ── */
   {
-    id:1, cat:'archaeological', emoji:'🏛️',
-    ar:{ name:'تل نينوى (قويونجق)', city:'الموصل', desc:'قلب الحضارة الآشورية القديمة. يضم بقايا قصر سنحاريب وأشوربانيبال وآلاف الألواح المسمارية.' },
-    en:{ name:'Nineveh Tell (Kuyunjik)', city:'Mosul', desc:'Heart of ancient Assyrian civilization. Contains remains of Sennacherib and Ashurbanipal palaces and thousands of cuneiform tablets.' },
+    id:1, cat:'archaeological', 
+    image:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Nineveh_walls.jpg/640px-Nineveh_walls.jpg',
+    ar:{ name:'تل نينوى الأثري وأسوارها', city:'الموصل - الجانب الأيسر', desc:'عاصمة الإمبراطورية الآشورية وبقايا القصور الملكية والأسوار الضخمة الممتدة لحماية المدينة القديمة.' },
+    en:{ name:'Nineveh Archaeological Tell & Walls', city:'Mosul - Left Bank', desc:'The ancient capital of the Assyrian empire, containing royal palaces and massive defensive walls.' },
     lat:36.3614, lng:43.1525
   },
   {
-    id:2, cat:'archaeological', emoji:'🦁',
-    ar:{ name:'تل النبي يونس (نمرود الصغير)', city:'الموصل', desc:'موقع تاريخي ديني يحتوي على بقايا آشورية ومرتبط بقصة النبي يونس عليه السلام.' },
-    en:{ name:'Nebi Yunus Tell', city:'Mosul', desc:'Religious-historical site containing Assyrian remains, associated with the story of Prophet Jonah.' },
-    lat:36.3432, lng:43.1602
-  },
-  {
-    id:3, cat:'archaeological', emoji:'🏺',
-    ar:{ name:'مدينة نمرود الأثرية (كالخو)', city:'نمرود', desc:'عاصمة الإمبراطورية الآشورية في القرن التاسع قبل الميلاد. تضم قصر آشور ناصر بال الثاني والزيقورات.' },
-    en:{ name:'Nimrud Ancient City (Kalhu)', city:'Nimrud', desc:'Capital of the Assyrian Empire in the 9th century BC. Contains the palace of Ashurnasirpal II and the ziggurat.' },
-    lat:36.0990, lng:43.3270
-  },
-  {
-    id:4, cat:'archaeological', emoji:'🗿',
-    ar:{ name:'مدينة خورساباد (دور شروكين)', city:'الحمدانية', desc:'عاصمة سرجون الثاني الآشوري. تضم بوابات ضخمة وتماثيل الثيران المجنّحة (لاماسو).' },
-    en:{ name:'Khorsabad (Dur-Sharrukin)', city:'Hamdaniya', desc:"Sargon II's Assyrian capital. Features massive gates and Lamassu (winged bull) statues." },
-    lat:36.5102, lng:43.2283
-  },
-  {
-    id:5, cat:'archaeological', emoji:'⛩️',
-    ar:{ name:'موقع أيسكاوا الأثري', city:'أربيل / حدود نينوى', desc:'موقع أثري قديم يعود إلى حضارات ما قبل الميلاد في سهل نينوى.' },
-    en:{ name:'Aiskawa Archaeological Site', city:'Nineveh Plains', desc:'Ancient archaeological site dating back to pre-Christian civilizations on the Nineveh Plains.' },
-    lat:36.2800, lng:43.5200
-  },
-  {
-    id:6, cat:'archaeological', emoji:'🏜️',
-    ar:{ name:'تل مردوخ', city:'الموصل', desc:'تل أثري يرجع إلى الحقبة الآشورية، يحتوي على طبقات حضارية متعددة.' },
-    en:{ name:'Tell Mardukh', city:'Mosul', desc:'Archaeological mound dating to the Assyrian period, containing multiple civilizational layers.' },
-    lat:36.3250, lng:43.1800
-  },
-  {
-    id:7, cat:'archaeological', emoji:'🪨',
-    ar:{ name:'منحوتات الخانوقة الصخرية', city:'الموصل', desc:'نقوش صخرية آشورية نادرة محفورة في الواجهات الجبلية تصور الملوك والآلهة الآشورية.' },
-    en:{ name:'Khanuqa Rock Carvings', city:'Mosul', desc:'Rare Assyrian rock inscriptions carved into mountain facades depicting kings and Assyrian deities.' },
-    lat:36.4200, lng:43.0800
-  },
-  {
-    id:8, cat:'archaeological', emoji:'🏗️',
-    ar:{ name:'أسوار نينوى القديمة', city:'الموصل', desc:'الأسوار الأثرية الضخمة التي بناها سنحاريب تحيط بالمدينة القديمة، يصل طولها إلى 12 كم.' },
-    en:{ name:'Ancient Walls of Nineveh', city:'Mosul', desc:"Massive ancient walls built by Sennacherib surrounding the old city, stretching up to 12 km." },
-    lat:36.3630, lng:43.1450
-  },
-  {
-    id:9, cat:'archaeological', emoji:'🚪',
-    ar:{ name:'بوابة مشكي المرممة', city:'الموصل', desc:'إحدى البوابات الـ15 الشهيرة لمدينة نينوى القديمة، رُمّمت وأعيد افتتاحها ورمز للمدينة.' },
-    en:{ name:'Mashki Gate (Restored)', city:'Mosul', desc:'One of the 15 famous gates of ancient Nineveh, restored and reopened as a symbol of the city.' },
-    lat:36.3670, lng:43.1480
-  },
-  {
-    id:10, cat:'archaeological', emoji:'🦅',
-    ar:{ name:'بوابة نرقال', city:'الموصل', desc:'بوابة أثرية آشورية مرممة تزيّنها تماثيل الثيران المجنحة الشهيرة (لاماسو) على جانبيها.' },
-    en:{ name:'Nergal Gate', city:'Mosul', desc:'Restored Assyrian archaeological gate adorned with famous winged bull (Lamassu) statues on both sides.' },
-    lat:36.3720, lng:43.1380
-  },
-
-  /* ── RELIGIOUS ── */
-  {
-    id:11, cat:'religious', emoji:'🕌',
-    ar:{ name:'جامع النبي يونس', city:'الموصل', desc:'جامع تاريخي يقوم على الموقع المنسوب لقبر النبي يونس (ذو النون) عليه السلام.' },
-    en:{ name:"Prophet Jonah's Mosque", city:'Mosul', desc:"Historic mosque built on the site attributed to the tomb of Prophet Jonah (Dhul-Nun), peace be upon him." },
-    lat:36.3432, lng:43.1620
-  },
-  {
-    id:12, cat:'religious', emoji:'🕌',
-    ar:{ name:'جامع النبي جرجيس', city:'الموصل', desc:'جامع تاريخي يضم ضريح النبي جرجيس (القديس جاورجيوس) ويجمع بين الموروث الإسلامي والمسيحي.' },
-    en:{ name:"Prophet Jirjis Mosque", city:'Mosul', desc:'Historic mosque housing the shrine of Prophet Jirjis (St. George), blending Islamic and Christian heritage.' },
-    lat:36.3380, lng:43.1280
-  },
-  {
-    id:13, cat:'religious', emoji:'⛪',
-    ar:{ name:'كنيسة الطاهرة (الساعة)', city:'الموصل', desc:'كنيسة مسيحية تاريخية تعود للقرن الثالث عشر الميلادي، معروفة ببرج ساعتها المميز.' },
-    en:{ name:'Al-Tahira Church (Clock Church)', city:'Mosul', desc:'Historic Christian church dating to the 13th century AD, known for its distinctive clock tower.' },
-    lat:36.3401, lng:43.1278
-  },
-  {
-    id:14, cat:'religious', emoji:'⛪',
-    ar:{ name:'دير مار بهنام', city:'نمرود / الحمدانية', desc:'دير مسيحي آشوري يعود للقرن الرابع الميلادي، نقوش حجرية رائعة ومقام الشهيد مار بهنام.' },
-    en:{ name:'Mar Behnam Monastery', city:'Hamdaniya', desc:'Assyrian Christian monastery dating to the 4th century AD, with magnificent stone carvings and the shrine of Martyr Mar Behnam.' },
-    lat:36.2033, lng:43.4489
-  },
-  {
-    id:15, cat:'religious', emoji:'⛪',
-    ar:{ name:'دير مار متى (الجبل المقدس)', city:'بعشيقة', desc:'أحد أقدم الأديرة المسيحية في العالم (القرن الرابع الميلادي)، يقع على قمة جبل مطل على سهل نينوى.' },
-    en:{ name:"Mar Mattai Monastery (Holy Mountain)", city:'Bashiqa', desc:'One of the oldest Christian monasteries in the world (4th century AD), perched on a mountain peak overlooking the Nineveh Plains.' },
-    lat:36.5310, lng:43.4580
-  },
-  {
-    id:16, cat:'religious', emoji:'✡️',
-    ar:{ name:'ضريح النبي يوشع', city:'الموصل', desc:'موقع ديني يهودي-إسلامي تاريخي منسوب للنبي يوشع بن نون، يزوره أتباع الديانتين.' },
-    en:{ name:"Prophet Joshua's Shrine", city:'Mosul', desc:'Historic Jewish-Islamic religious site attributed to Prophet Joshua, visited by followers of both faiths.' },
-    lat:36.3450, lng:43.1550
-  },
-  {
-    id:17, cat:'religious', emoji:'🕌',
-    ar:{ name:'الجامع الكبير (الأموي) في الموصل', city:'الموصل', desc:'أحد أعرق الجوامع في المنطقة، بُني في صدر الإسلام ويضم المئذنة الحدباء الأيقونية.' },
-    en:{ name:'Al-Nuri Grand Mosque (Umayyad)', city:'Mosul', desc:'One of the most historic mosques in the region, built in the early Islamic era and featuring the iconic leaning Al-Hadba minaret.' },
+    id:2, cat:'religious', 
+    image:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Al-Nuri_Mosque_reconstruction_2022.jpg/640px-Al-Nuri_Mosque_reconstruction_2022.jpg',
+    ar:{ name:'جامع النوري الكبير والمنارة الحدباء', city:'الموصل القديمة - الجانب الأيمن', desc:'موقع ديني وتاريخي بارز أسس في القرن السادس الهجري، ويشتهر بمنارته المائلة الفريدة التي تعد رمزاً لمدينة الموصل.' },
+    en:{ name:'Al-Nuri Grand Mosque & Al-Hadba Minaret', city:'Old Mosul - Right Bank', desc:'A prominent religious and historical site founded in the 6th century AH, famous for its unique leaning minaret.' },
     lat:36.3411, lng:43.1331
   },
   {
-    id:18, cat:'religious', emoji:'🕌',
-    ar:{ name:'المئذنة الحدباء', city:'الموصل', desc:'رمز الموصل الخالد، مئذنة مائلة تعود للقرن الثاني عشر الميلادي، قيد إعادة الإعمار بدعم يونسكو.' },
-    en:{ name:'Al-Hadba Minaret (Leaning Minaret)', city:'Mosul', desc:"Mosul's eternal symbol, a leaning minaret dating to the 12th century AD, currently under reconstruction with UNESCO support." },
-    lat:36.3411, lng:43.1328
-  },
-
-  /* ── HISTORICAL ── */
-  {
-    id:19, cat:'historical', emoji:'🏰',
-    ar:{ name:'قلعة الموصل القديمة', city:'الموصل', desc:'قلعة تاريخية تطل على نهر دجلة، تعود لعصور متعاقبة من الحضارات الإسلامية والعثمانية.' },
-    en:{ name:'Old Mosul Citadel', city:'Mosul', desc:'Historic fortress overlooking the Tigris River, dating back through successive Islamic and Ottoman civilizations.' },
-    lat:36.3411, lng:43.1240
-  },
-  {
-    id:20, cat:'historical', emoji:'🌉',
-    ar:{ name:'جسر الموصل القديم (الحديدي)', city:'الموصل', desc:'الجسر التاريخي الرابط بين الموصل والجانب الأيسر، شاهد على تاريخ المدينة الحديث.' },
-    en:{ name:'Old Iron Bridge', city:'Mosul', desc:'The historic bridge connecting Mosul to its eastern bank, a witness to the city\'s modern history.' },
-    lat:36.3380, lng:43.1200
-  },
-  {
-    id:21, cat:'historical', emoji:'🏘️',
-    ar:{ name:'الموصل القديمة (المدينة اليمنى)', city:'الموصل', desc:'الجانب الأيمن التاريخي بأزقته العتيقة وبيوته الحجرية والأبواب الخشبية المنحوتة.' },
-    en:{ name:'Old Mosul (Right Bank)', city:'Mosul', desc:'The historic right bank with its ancient alleys, stone houses, and carved wooden doors.' },
+    id:3, cat:'historical', 
+    image:'https://images.unsplash.com/photo-1590075865003-e48277afd558?auto=format&fit=crop&w=640&q=80', /* صورة تعبيرية للموصل القديمة وأزقتها */
+    ar:{ name:'منطقة الموصل القديمة والأزقة العتيقة', city:'الموصل القديمة - الجانب الأيمن', desc:'قلب الموصل التاريخي المتميز بالعمارة التقليدية، بيوت الفرش، شناشيل، والأسواق التراثية القديمة.' },
+    en:{ name:'Old Mosul District & Ancient Alleys', city:'Old Mosul - Right Bank', desc:'The historical heart of Mosul characterized by traditional architecture, heritage houses, and ancient souks.' },
     lat:36.3400, lng:43.1300
   },
   {
-    id:22, cat:'historical', emoji:'🛒',
-    ar:{ name:'سوق الشعارين (السوق القديم)', city:'الموصل', desc:'السوق الشعبي التراثي في قلب الموصل القديمة، يعكس الحياة اليومية عبر قرون متعاقبة.' },
-    en:{ name:'Al-Shuarein Bazaar (Old Market)', city:'Mosul', desc:'The traditional heritage market in the heart of old Mosul, reflecting daily life across successive centuries.' },
-    lat:36.3395, lng:43.1310
+    id:4, cat:'religious', 
+    image:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Our_Lady_of_the_Hour_Church_2019.jpg/640px-Our_Lady_of_the_Hour_Church_2019.jpg',
+    ar:{ name:'كنيسة الطاهرة للساعة', city:'الموصل القديمة - الجانب الأيمن', desc:'كنيسة تاريخية عريقة تابعة للآباء الدومينيكان، تشتهر ببرج ساعتها الشهير المهداة من زوجة نابليون الثالث.' },
+    en:{ name:'Our Lady of the Hour Church (Al-Saa)', city:'Old Mosul - Right Bank', desc:'An ancient historic church famous for its iconic clock tower gifted by the Empress of France.' },
+    lat:36.3401, lng:43.1278
   },
   {
-    id:23, cat:'historical', emoji:'📚',
-    ar:{ name:'متحف الموصل', city:'الموصل', desc:'متحف أثري يضم مقتنيات آشورية وحضارات ما بين النهرين، يُعاد إحياؤه بعد الدمار.' },
-    en:{ name:'Mosul Museum', city:'Mosul', desc:'Archaeological museum housing Assyrian and Mesopotamian artifacts, being restored after destruction.' },
+    id:5, cat:'nature', 
+    image:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=640&q=80', /* صورة تعبيرية للمساحات الخضراء والضفاف */
+    ar:{ name:'غابات الموصل وضفاف نهر دجلة', city:'الموصل - الجانب الأيسر', desc:'تعتبر الرئة الخضراء للمدينة، وتضم مساحات شجرية شاسعة ومرافق سياحية ومطاعم مطلة على النهر مباشرة.' },
+    en:{ name:'Mosul Woods & Tigris River Banks', city:'Mosul - Left Bank', desc:'The green lung of the city, featuring vast forested areas, tourist facilities, and restaurants overlooking the river.' },
+    lat:36.3680, lng:43.1250
+  },
+  {
+    id:6, cat:'cultural', 
+    image:'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=640&q=80', /* صورة تعبيرية لمتحف ومقتنيات */
+    ar:{ name:'متحف الموصل الحضاري', city:'الموصل - الجانب الأيمن', desc:'ثاني أكبر متاحف العراق، يعرض كنوزاً أثرية نادرة وحضارات متعاقبة مرت على أرض نينوى.' },
+    en:{ name:'Mosul Civilization Museum', city:'Mosul - Right Bank', desc:'The second-largest museum in Iraq, displaying rare artifacts from successive civilizations in Nineveh.' },
     lat:36.3450, lng:43.1430
-  },
-  {
-    id:24, cat:'historical', emoji:'🏫',
-    ar:{ name:'المدرسة الحدباء التاريخية', city:'الموصل', desc:'مدرسة علمية تاريخية تعود للعهد العباسي، تمثل ازدهار الحياة العلمية في الموصل.' },
-    en:{ name:'Al-Hadba Historical School', city:'Mosul', desc:'Historical scientific school dating to the Abbasid era, representing the flourishing of intellectual life in Mosul.' },
-    lat:36.3415, lng:43.1340
-  },
-
-  /* ── NATURE ── */
-  {
-    id:25, cat:'nature', emoji:'🌊',
-    ar:{ name:'نهر دجلة في الموصل', city:'الموصل', desc:'الشريان التاريخي لحضارة وادي الرافدين يجري عبر الموصل، يوفر مناظر طبيعية خلابة وممشى جميل.' },
-    en:{ name:'Tigris River in Mosul', city:'Mosul', desc:'The historic artery of Mesopotamian civilization flowing through Mosul, offering stunning natural scenery and a beautiful promenade.' },
-    lat:36.3380, lng:43.1250
-  },
-  {
-    id:26, cat:'nature', emoji:'🏔️',
-    ar:{ name:'جبل باعذرا (جبل سنجار)', city:'سنجار', desc:'سلسلة جبلية خضراء في غرب نينوى تبلغ ذروتها 1463م، تضم آثاراً إيزيدية وطبيعة ساحرة.' },
-    en:{ name:'Mount Sinjar', city:'Sinjar', desc:'A green mountain range in western Nineveh reaching 1463m, containing Yazidi heritage sites and enchanting nature.' },
-    lat:36.3200, lng:41.8400
-  },
-  {
-    id:27, cat:'nature', emoji:'🌳',
-    ar:{ name:'غابة بعشيقة وبحزاني', city:'بعشيقة', desc:'غابات الزيتون والتين الممتدة في سهل نينوى، محاطة بالتراث الإيزيدي والمناظر الجبلية.' },
-    en:{ name:'Bashiqa & Bahzani Orchards', city:'Bashiqa', desc:'Olive and fig groves stretching across the Nineveh Plains, surrounded by Yazidi heritage and mountain scenery.' },
-    lat:36.5000, lng:43.4750
-  },
-  {
-    id:28, cat:'nature', emoji:'💧',
-    ar:{ name:'شلالات منطقة زاخو (حدود نينوى)', city:'زاخو / دهوك', desc:'شلالات طبيعية جميلة في الأطراف الشمالية لمحافظة نينوى، وجهة سياحية مميزة.' },
-    en:{ name:'Zakho Waterfalls (Nineveh border)', city:'Zakho / Dohuk border', desc:'Beautiful natural waterfalls on the northern edges of Nineveh Governorate, a distinctive tourist destination.' },
-    lat:37.1500, lng:42.6800
-  },
-  {
-    id:29, cat:'nature', emoji:'🏞️',
-    ar:{ name:'وادي الثرثار', city:'الشرقاط / حدود نينوى', desc:'وادٍ طبيعي واسع يمتد في أطراف المحافظة، يوفر بيئة طبيعية فريدة وعيون مائية.' },
-    en:{ name:'Tharthar Valley', city:'Shirqat / Nineveh border', desc:'A vast natural valley extending on the outskirts of the province, providing a unique natural environment and water springs.' },
-    lat:34.8000, lng:43.2000
-  },
-
-  /* ── CULTURAL ── */
-  {
-    id:30, cat:'cultural', emoji:'🎭',
-    ar:{ name:'لالش — مركز الديانة الإيزيدية', city:'شيخان', desc:'أقدس البقاع الإيزيدية في العالم، وادٍ مقدس يضم معابد ومزارات ذات روحانية عميقة.' },
-    en:{ name:"Lalish — Yazidi Sacred Valley", city:'Shekhan', desc:"The holiest site in the Yazidi world, a sacred valley containing temples and shrines of deep spirituality." },
-    lat:36.7958, lng:43.1208
-  },
-  {
-    id:31, cat:'cultural', emoji:'🏛️',
-    ar:{ name:'قرية عين صفني التراثية', city:'شيخان', desc:'قرية جبلية إيزيدية تحتفظ بعادات وتقاليد أصيلة وتراث ثقافي ضارب في القدم.' },
-    en:{ name:'Ain Sifni Heritage Village', city:'Shekhan', desc:'A Yazidi mountain village that preserves authentic customs, traditions, and ancient cultural heritage.' },
-    lat:36.7750, lng:43.1780
-  },
-  {
-    id:32, cat:'cultural', emoji:'🎨',
-    ar:{ name:'بيت الموصلي للفنون والتراث', city:'الموصل', desc:'مركز ثقافي يحتفي بفنون الخط والنسيج والموسيقى الموصلية العريقة ومدرسة نينوى للفنون.' },
-    en:{ name:'Mosul House of Arts & Heritage', city:'Mosul', desc:'Cultural center celebrating the arts of calligraphy, weaving, and Mosul music, and the Nineveh School of Fine Arts.' },
-    lat:36.3500, lng:43.1480
-  },
-  {
-    id:33, cat:'cultural', emoji:'📖',
-    ar:{ name:'مكتبة الحضارات (متحف الحضارة)', city:'الموصل', desc:'مشروع ثقافي حضاري يوثّق تاريخ نينوى عبر العصور ويحتضن مخطوطات وآثاراً نادرة.' },
-    en:{ name:'Library of Civilizations (Heritage Museum)', city:'Mosul', desc:"A cultural project documenting Nineveh's history across ages, housing rare manuscripts and artifacts." },
-    lat:36.3490, lng:43.1460
-  },
-  {
-    id:34, cat:'cultural', emoji:'🎵',
-    ar:{ name:'دار الأوبرا والمسرح الموصلي', city:'الموصل', desc:'مركز الحياة الفنية في الموصل، مسرح يحتضن الموسيقى الكلاسيكية والعروض الفنية التراثية.' },
-    en:{ name:'Mosul Opera House & Theater', city:'Mosul', desc:'Center of artistic life in Mosul, a theater hosting classical music and heritage cultural performances.' },
-    lat:36.3460, lng:43.1420
-  },
-  {
-    id:35, cat:'cultural', emoji:'🏡',
-    ar:{ name:'قضاء الحضر (مدينة الشمس)', city:'الحضر', desc:'مدينة أثرية فريدة تجمع التأثيرات العربية والإغريقية والفارسية، موقع تراث عالمي يونسكو.' },
-    en:{ name:'Hatra (City of the Sun)', city:'Hatra', desc:'A unique ancient city blending Arab, Greek, and Persian influences. UNESCO World Heritage Site.' },
-    lat:35.5853, lng:42.7175
-  },
-  {
-    id:36, cat:'cultural', emoji:'🏺',
-    ar:{ name:'قصر سرايا الموصل العثماني', city:'الموصل', desc:'القصر العثماني التاريخي (السراي الحكومي) الذي شهد أحداثاً فارقة في تاريخ المدينة الحديث.' },
-    en:{ name:'Mosul Ottoman Government Seray', city:'Mosul', desc:'The historic Ottoman Government Palace that witnessed landmark events in the city\'s modern history.' },
-    lat:36.3420, lng:43.1290
-  },
-  {
-    id:37, cat:'archaeological', emoji:'🗺️',
-    ar:{ name:'موقع شروكين (أسنو)', city:'الحمدانية', desc:'موقع أثري مهم يضم بقايا مستوطنات قديمة تعود لآلاف السنين قرب سهل نينوى.' },
-    en:{ name:'Sharrukin Site (Asno)', city:'Hamdaniya', desc:'Important archaeological site containing remains of ancient settlements thousands of years old near the Nineveh Plains.' },
-    lat:36.4800, lng:43.4900
-  },
-  {
-    id:38, cat:'nature', emoji:'🌄',
-    ar:{ name:'سهل نينوى البانورامي', city:'نينوى', desc:'سهل خصيب ممتد بين جبال زاغروس ونهر دجلة، يوفر مشاهد بانورامية خلابة وطرقاً ريفية جميلة.' },
-    en:{ name:'Nineveh Plains Panorama', city:'Nineveh', desc:'A fertile plain extending between the Zagros Mountains and the Tigris River, offering stunning panoramic views and beautiful rural roads.' },
-    lat:36.4500, lng:43.4000
   }
 ];
 
@@ -691,8 +547,8 @@ const SITES = [
 const T = {
   ar:{
     badge:'محافظة نينوى • العراق',
-    heroTitle:'نينوى',
-    heroSub:'حضارة تمتد لآلاف السنين — اكتشف المواقع الأثرية والسياحية في قلب بلاد الرافدين',
+    heroTitle:'الموصل',
+    heroSub:'حضارة تمتد لآلاف السنين — اكتشف المواقع الأثرية والسياحية في قلب الحدباء',
     scrollTxt:'اكتشف المواقع',
     searchPh:'ابحث عن موقع...',
     fAll:'الكل', fArch:'أثري', fHist:'تاريخي', fRel:'ديني', fNat:'طبيعي', fCult:'ثقافي',
@@ -705,15 +561,16 @@ const T = {
     noRes:'لا توجد نتائج مطابقة',
     statLbl1:'موقعاً سياحياً وأثرياً',
     statLbl2:'سنة من الحضارة',
-    statLbl3:'أقضية مغطّاة',
+    statLbl3:'جانبي المدينة (الأيمن والأيسر)',
     statLbl4:'مواقع مرشّحة للتراث العالمي',
-    footer:'جميع الحقوق محفوظة © نينوى السياحية 2025 — تفتح الخرائط في تطبيق Google Maps',
-    langLbl:'اللغة:'
+    footer:'جميع الحقوق محفوظة © نينوى السياحية 2026 — تفتح الخرائط في تطبيق Google Maps',
+    langLbl:'اللغة:',
+    visitorTitle:'عدد زوار الموقع:'
   },
   en:{
     badge:'Nineveh Governorate • Iraq',
-    heroTitle:'Nineveh',
-    heroSub:'A civilization spanning thousands of years — discover archaeological and tourist sites in the heart of Mesopotamia',
+    heroTitle:'Mosul',
+    heroSub:'A civilization spanning thousands of years — discover archaeological and tourist sites in the heart of Al-Hadbaa',
     scrollTxt:'Explore Sites',
     searchPh:'Search for a site...',
     fAll:'All', fArch:'Archaeological', fHist:'Historical', fRel:'Religious', fNat:'Nature', fCult:'Cultural',
@@ -726,10 +583,11 @@ const T = {
     noRes:'No matching sites found',
     statLbl1:'Tourist & Archaeological Sites',
     statLbl2:'Years of Civilization',
-    statLbl3:'Districts Covered',
+    statLbl3:'Both Banks (Left & Right)',
     statLbl4:'UNESCO Heritage Nominees',
-    footer:'All rights reserved © Nineveh Tourism 2025 — Maps open in Google Maps app',
-    langLbl:'Language:'
+    footer:'All rights reserved © Nineveh Tourism 2026 — Maps open in Google Maps app',
+    langLbl:'Language:',
+    visitorTitle:'Visitor Counter:'
   }
 };
 
@@ -757,7 +615,7 @@ function renderCards(sites){
   const grid = document.getElementById('sites-grid');
   const noRes = document.getElementById('no-results');
   const t = T[lang];
-  // remove old cards
+  
   Array.from(grid.querySelectorAll('.site-card')).forEach(c=>c.remove());
 
   if(!sites.length){
@@ -772,8 +630,15 @@ function renderCards(sites){
     const catLabel = t['cat'+site.cat.charAt(0).toUpperCase()+site.cat.slice(1)] || site.cat;
     const card = document.createElement('div');
     card.className='site-card';
+    
+    // Fallback Image placeholder if link fails
+    const fallbackImg = "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=640&q=80";
+    const siteImg = site.image ? site.image : fallbackImg;
+
     card.innerHTML=`
-      <div class="card-img-placeholder">${site.emoji}</div>
+      <div class="card-img-wrap">
+        <img class="card-img" src="${siteImg}" alt="${d.name}" onerror="this.src='${fallbackImg}'">
+      </div>
       <div class="card-body">
         <span class="card-category ${catColors[site.cat]}">${catLabel}</span>
         <div class="card-name">${d.name}</div>
@@ -822,7 +687,10 @@ function openModal(site){
   const t = T[lang];
   const catLabel = t['cat'+site.cat.charAt(0).toUpperCase()+site.cat.slice(1)] || site.cat;
 
-  document.getElementById('modal-emoji').textContent = site.emoji;
+  const fallbackImg = "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=640&q=80";
+  document.getElementById('modal-img').src = site.image ? site.image : fallbackImg;
+  document.getElementById('modal-img').onerror = function(){ this.src = fallbackImg; };
+
   document.getElementById('modal-cat').innerHTML = `<span class="card-category ${catColors[site.cat]}">${catLabel}</span>`;
   document.getElementById('modal-name').textContent = d.name;
   document.getElementById('modal-city').textContent = '📍 '+d.city;
@@ -846,8 +714,21 @@ function openMap(){
   window.open(url,'_blank');
 }
 
-/* close modal on Escape */
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+/* ═══════════════════════════════════════════
+   VISITOR COUNTER SIMULATOR
+═══════════════════════════════════════════ */
+function initVisitorCounter() {
+  let count = localStorage.getItem('mosul_tour_visitors');
+  if (!count) {
+    count = Math.floor(Math.random() * (2500 - 1200) + 1200); // رقم أولي وهمي لبدء العداد بشكل جميل
+  } else {
+    count = parseInt(count) + 1; // زيادة العدد في كل مرة يفتح بها الموقع
+  }
+  localStorage.setItem('mosul_tour_visitors', count);
+  document.getElementById('visitor-count').textContent = count.toLocaleString();
+}
 
 /* ═══════════════════════════════════════════
    LANGUAGE
@@ -879,8 +760,8 @@ function setLang(l){
   document.getElementById('stat-lbl4').textContent = t.statLbl4;
   document.getElementById('footer-txt').textContent = t.footer;
   document.getElementById('lang-label').textContent = t.langLbl;
+  document.getElementById('visitor-title').textContent = t.visitorTitle;
 
-  // hero title class
   const ht = document.getElementById('hero-title');
   ht.className = l==='ar'?'hero-title-ar':'hero-title-en';
 
@@ -893,7 +774,9 @@ function setLang(l){
 /* ═══════════════════════════════════════════
    INIT
 ═══════════════════════════════════════════ */
+initVisitorCounter();
 renderCards(SITES);
+document.getElementById('stat-sites').textContent = SITES.length; // تحديث إحصائيات المواقع تلقائياً
 </script>
 </body>
 </html>
