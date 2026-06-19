@@ -217,10 +217,12 @@
     padding: 6px 14px; border: 1px solid rgba(201,168,76,0.2); border-radius: 20px;
   }
   .visitor-counter {
-    background: rgba(26,15,0,0.6); display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 16px; border-radius: 30px; border: 1px solid var(--border); margin-bottom: 20px; font-size: 0.8rem;
+    background: rgba(26,15,0,0.6); display: inline-flex; align-items: center; gap: 10px;
+    padding: 10px 20px; border-radius: 30px; border: 1px solid var(--border); margin-bottom: 20px; font-size: 0.85rem;
   }
-  .visitor-count { font-family: 'Inter', sans-serif; font-weight: 700; color: var(--gold); }
+  .visitor-counter img {
+    display: block; max-height: 20px; filter: hue-rotate(15deg); /* يعطي الصورة تناسقاً مع ذهبي الموقع */
+  }
   footer { font-size:.75rem; line-height:1.8; }
 
   /* ── MODAL ── */
@@ -336,8 +338,9 @@
   <div class="visitor-counter">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
     <span id="visitor-title">عدد زوار الموقع:</span>
-    <!-- العداد سيبدأ الآن بقراءة البيانات الحقيقية وتحميلها هنا -->
-    <span id="visitor-count" class="visitor-count">جاري التحميل...</span>
+    
+    <!-- 🟢 العداد الحقيقي الجديد المعتمد كصورة ذكية تحسب الزيارات بشكل دائم وموحد للكل 🟢 -->
+    <img src="https://profile-counter.glitch.me/mosul_tourism_map_2026/count.svg" alt="Visitor Count">
   </div>
 
   <div class="social-links">
@@ -482,26 +485,6 @@ function closeModal(e){ if(e && e.target !== document.getElementById('modal-over
 function openMap(){ if(!currentSite) return; window.open(`https://www.google.com/maps/search/?api=1&query=${currentSite.lat},${currentSite.lng}`,'_blank'); }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
-/* ═══════════════════════════════════════════
-   عداد الزوار الحقيقي عبر خادم خارجي مجاني
-═══════════════════════════════════════════ */
-function initVisitorCounter() {
-  // نستخدم منصة api.counterapi.dev لإنشاء مفتاح عداد فريد وحقيقي لموقعك
-  // قمت بتسمية المفتاح بموقعك mosul_tourism_map_2026
-  fetch('https://api.counterapi.dev/v1/mosul_tourism_map_2026/visits/up')
-    .then(response => response.json())
-    .then(data => {
-      // العداد يقرأ القيمة الحقيقية الآن ويعرضها
-      // أضفت لها +1000 كمثال لتبدأ بمظهر ممتاز وحقيقي للجمهور
-      let realCount = data.value + 1000;
-      document.getElementById('visitor-count').textContent = realCount.toLocaleString();
-    })
-    .catch(error => {
-      // في حال حدوث أي خطأ في السيرفر الخارجي، يعود للرقم الاحتياطي لكي لا يخرب مظهر الموقع
-      document.getElementById('visitor-count').textContent = "1,428";
-    });
-}
-
 function setLang(l){
   lang = l; const t = T[l]; document.documentElement.lang = l; document.documentElement.dir = l==='ar'?'rtl':'ltr'; document.body.classList.toggle('en', l==='en');
   document.getElementById('hero-badge').textContent = t.badge; document.getElementById('hero-title').textContent = t.heroTitle; document.getElementById('hero-sub').textContent = t.heroSub;
@@ -516,7 +499,7 @@ function setLang(l){
   renderCards(getFiltered());
 }
 
-initVisitorCounter(); renderCards(SITES); document.getElementById('stat-sites').textContent = SITES.length;
+renderCards(SITES); document.getElementById('stat-sites').textContent = SITES.length;
 </script>
 </body>
 </html>
