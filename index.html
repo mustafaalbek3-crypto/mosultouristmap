@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0065)file:///C:/Users/BYTNA%20MOSUL/Downloads/mosul-tourism-map_4.html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>خارطة الموصل السياحية | Mosul Tourism Map</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./خارطة الموصل السياحية _ Mosul Tourism Map_files/css2" rel="stylesheet">
 <style>
   :root {
     --gold:     #C9A84C;
@@ -18,9 +18,7 @@
     --border:   rgba(201,168,76,0.25);
     --radius:   12px;
   }
-
   * { margin:0; padding:0; box-sizing:border-box; }
-
   body {
     font-family: 'Noto Kufi Arabic', sans-serif;
     background: var(--mist);
@@ -28,12 +26,10 @@
     direction: rtl;
     -webkit-text-size-adjust: 100%;
   }
-
   body.en {
     font-family: 'Inter', sans-serif;
     direction: ltr;
   }
-
   /* ── LANG TOGGLE ── */
   #lang-bar {
     position: fixed; top:0; right:0; left:0; z-index:999;
@@ -51,7 +47,6 @@
   .lang-btn:hover, .lang-btn.active {
     background: var(--gold); color: var(--deep); font-weight:600;
   }
-
   /* ── HERO ── */
   #hero {
     margin-top: 38px;
@@ -65,7 +60,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .hero-badge {
     display:inline-block;
     border: 1px solid var(--gold);
@@ -74,7 +68,6 @@
     font-size:.78rem; letter-spacing:.12em;
     margin-bottom:20px;
   }
-
   .hero-title-ar {
     font-family: 'Amiri', serif;
     font-size: clamp(2.2rem, 7vw, 5.5rem);
@@ -82,7 +75,6 @@
     line-height: 1.15;
     text-shadow: 0 2px 30px rgba(0,0,0,.5);
   }
-
   .hero-title-en {
     font-family: 'Playfair Display', serif;
     font-size: clamp(1.8rem, 5vw, 3.8rem);
@@ -90,7 +82,6 @@
     line-height: 1.2;
     text-shadow: 0 2px 30px rgba(0,0,0,.5);
   }
-
   .hero-sub {
     color: rgba(255,255,255,.75);
     font-size: clamp(.85rem, 2vw, 1.1rem);
@@ -98,13 +89,11 @@
     margin: 16px auto 0;
     line-height: 1.8;
   }
-
   .hero-divider {
     width: 80px; height: 2px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
     margin: 24px auto;
   }
-
   .scroll-hint {
     position:absolute; bottom:15px; left:50%; transform:translateX(-50%);
     display:flex; flex-direction:column; align-items:center; gap:6px;
@@ -116,7 +105,6 @@
     animation: bounce .9s ease-in-out infinite alternate;
   }
   @keyframes bounce { from{transform:rotate(45deg) translate(-3px,-3px)} to{transform:rotate(45deg) translate(3px,3px)} }
-
   /* ── SEARCH ── */
   #search-wrap {
     background: var(--deep);
@@ -135,7 +123,6 @@
     outline:none; transition: border .2s;
     direction: inherit;
   }
-
   #filter-wrap {
     display:flex; flex-wrap:wrap; gap:8px;
     justify-content:center; padding:16px 14px;
@@ -149,7 +136,6 @@
     transition: all .2s;
   }
   .filter-btn.active { background:var(--gold); border-color:var(--gold); color:var(--deep); font-weight:600; }
-
   /* ── SECTION ── */
   .section-title {
     text-align:center; padding: 30px 20px 15px;
@@ -159,7 +145,10 @@
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     color: var(--ink);
   }
-
+  .section-title p { color:#8a7560; font-size:.85rem; margin-top:6px; }
+  .gold-line {
+    width:60px; height:2px; background:var(--gold); margin:14px auto 0;
+  }
   /* ── GRID ── */
   #sites-grid {
     display: grid;
@@ -169,7 +158,6 @@
     max-width: 1300px;
     margin: 0 auto;
   }
-
   /* ── CARD ── */
   .site-card {
     background: #fff;
@@ -178,23 +166,39 @@
     box-shadow: 0 2px 10px rgba(44,24,16,.05);
     border: 1px solid rgba(201,168,76,.12);
     display:flex; flex-direction:column;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
   }
-
+  .site-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(44,24,16,.1); }
   .card-img-wrap {
     width: 100%; height: 180px; position: relative; overflow: hidden; background: #e8dfc8;
   }
   .card-img {
     width:100%; height:100%; object-fit:cover;
   }
-
   .card-body {
     padding: 14px 16px;
     flex:1; display:flex; flex-direction:column; gap:8px;
   }
+  .card-category {
+    display:inline-block; align-self:flex-start;
+    font-size:.7rem; padding:3px 10px; border-radius:12px;
+    font-weight:600;
+  }
+  .cat-archaeological { background:#EFE3C2; color:#8B4513; }
+  .cat-historical      { background:#E6DCEF; color:#5B3A8B; }
+  .cat-religious        { background:#DCEBE5; color:#1F6F4F; }
+  .cat-nature            { background:#DDEFD8; color:#3E7A2C; }
+  .cat-cultural          { background:#F3DCE6; color:#9B2C5E; }
+  .cat-restaurant       { background:#FDE3D0; color:#B5541B; }
+  .cat-hotel              { background:#D6E7F2; color:#1E5C8A; }
   .card-name { font-size:1rem; font-weight:700; color:var(--ink); }
   .card-desc { font-size:.8rem; color:#7a6452; line-height:1.6; flex:1; }
   .card-city { font-size:.75rem; color: var(--clay); }
-
+  #no-results {
+    display:none; text-align:center; padding:50px 20px; grid-column:1/-1; color:#a9967e;
+  }
+  #no-results .emoji { font-size:2rem; display:block; margin-bottom:10px; }
   /* ── STATS ── */
   #stats {
     background: var(--deep);
@@ -205,7 +209,6 @@
   .stat { text-align:center; min-width: 120px; }
   .stat-num { font-family:'Amiri',serif; font-size:2rem; color: var(--gold); }
   .stat-lbl { color:rgba(255,255,255,.55); font-size:.78rem; }
-
   /* ── FOOTER ── */
   .footer-container {
     background: #100800; color: rgba(255,255,255,.6);
@@ -216,15 +219,7 @@
     color: var(--gold-lt); text-decoration: none; font-size: 0.8rem;
     padding: 6px 14px; border: 1px solid rgba(201,168,76,0.2); border-radius: 20px;
   }
-  .visitor-counter {
-    background: rgba(26,15,0,0.6); display: inline-flex; align-items: center; gap: 10px;
-    padding: 10px 20px; border-radius: 30px; border: 1px solid var(--border); margin-bottom: 20px; font-size: 0.85rem;
-  }
-  .visitor-counter img {
-    display: block; max-height: 20px; filter: hue-rotate(15deg); /* يعطي الصورة تناسقاً مع ذهبي الموقع */
-  }
   footer { font-size:.75rem; line-height:1.8; }
-
   /* ── MODAL ── */
   #modal-overlay {
     display:none; position:fixed; inset:0; z-index:9999;
@@ -239,7 +234,9 @@
   }
   #modal-img { width:100%; height:180px; object-fit:cover; }
   #modal-content { padding:16px 20px; }
+  #modal-cat { margin-bottom:8px; }
   #modal-name { font-size:1.2rem; font-weight:700; color:var(--ink); margin-bottom:6px; }
+  #modal-city { font-size:.8rem; color:var(--clay); margin-bottom:10px; }
   #modal-desc { font-size:.85rem; color:#6b5a45; line-height:1.7; margin-bottom:16px; }
   #modal-actions { display:flex; gap:10px; }
   #modal-map-btn {
@@ -247,12 +244,13 @@
     background:linear-gradient(135deg,var(--gold) 0%,#b8891e 100%);
     color:#fff; border:none; font-weight:600; font-size:.85rem;
     display:flex; align-items:center; justify-content:center; gap:6px;
+    cursor:pointer;
   }
   #modal-close {
     flex:1; padding:10px; border-radius:10px;
     border:1px solid #e0d0b8; background:transparent; color:#7a6452; font-size:.85rem;
+    cursor:pointer;
   }
-
   @media(max-width:480px){
     #hero { min-height: 65vh; }
     #sites-grid { grid-template-columns: 1fr; padding: 10px 12px; }
@@ -262,14 +260,12 @@
 </style>
 </head>
 <body>
-
 <!-- LANG BAR -->
 <div id="lang-bar">
   <span id="lang-label">اللغة:</span>
-  <button class="lang-btn active" onclick="setLang('ar')" id="btn-ar">العربية</button>
-  <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+  <button class="lang-btn active" onclick="setLang(&#39;ar&#39;)" id="btn-ar">العربية</button>
+  <button class="lang-btn" onclick="setLang(&#39;en&#39;)" id="btn-en">English</button>
 </div>
-
 <!-- HERO -->
 <section id="hero">
   <div class="hero-badge" id="hero-badge">محافظة نينوى • العراق</div>
@@ -281,7 +277,6 @@
     <div class="arrow"></div>
   </div>
 </section>
-
 <!-- SEARCH -->
 <div id="search-wrap">
   <div id="search-box">
@@ -289,33 +284,109 @@
   </div>
 </div>
 <div id="filter-wrap">
-  <button class="filter-btn active" data-cat="all" onclick="setFilter('all',this)" id="f-all">الكل</button>
-  <button class="filter-btn" data-cat="archaeological" onclick="setFilter('archaeological',this)" id="f-arch">🏛️ <span id="f-arch-lbl">أثري</span></button>
-  <button class="filter-btn" data-cat="historical" onclick="setFilter('historical',this)" id="f-hist">🏰 <span id="f-hist-lbl">تاريخي</span></button>
-  <button class="filter-btn" data-cat="religious" onclick="setFilter('religious',this)" id="f-rel">🕌 <span id="f-rel-lbl">ديني</span></button>
-  <button class="filter-btn" data-cat="nature" onclick="setFilter('nature',this)" id="f-nat">🌿 <span id="f-nat-lbl">طبيعي</span></button>
-  <button class="filter-btn" data-cat="cultural" onclick="setFilter('cultural',this)" id="f-cult">🎭 <span id="f-cult-lbl">ثقافي</span></button>
+  <button class="filter-btn active" data-cat="all" onclick="setFilter(&#39;all&#39;,this)" id="f-all">الكل</button>
+  <button class="filter-btn" data-cat="archaeological" onclick="setFilter(&#39;archaeological&#39;,this)" id="f-arch">🏛️ <span id="f-arch-lbl">أثري</span></button>
+  <button class="filter-btn" data-cat="historical" onclick="setFilter(&#39;historical&#39;,this)" id="f-hist">🏰 <span id="f-hist-lbl">تاريخي</span></button>
+  <button class="filter-btn" data-cat="religious" onclick="setFilter(&#39;religious&#39;,this)" id="f-rel">🕌 <span id="f-rel-lbl">ديني</span></button>
+  <button class="filter-btn" data-cat="nature" onclick="setFilter(&#39;nature&#39;,this)" id="f-nat">🌿 <span id="f-nat-lbl">طبيعي</span></button>
+  <button class="filter-btn" data-cat="cultural" onclick="setFilter(&#39;cultural&#39;,this)" id="f-cult">🎭 <span id="f-cult-lbl">ثقافي</span></button>
+  <button class="filter-btn" data-cat="restaurant" onclick="setFilter(&#39;restaurant&#39;,this)" id="f-food">🍽️ <span id="f-food-lbl">مطاعم</span></button>
+  <button class="filter-btn" data-cat="hotel" onclick="setFilter(&#39;hotel&#39;,this)" id="f-stay">🏨 <span id="f-stay-lbl">فنادق</span></button>
 </div>
-
 <!-- SECTION TITLE -->
 <div class="section-title">
   <h2 id="sec-title">المواقع الأثرية والسياحية</h2>
   <p id="sec-sub">اضغط على أي موقع لفتحه في خرائط Google</p>
   <div class="gold-line"></div>
 </div>
-
 <!-- GRID -->
 <div id="sites-grid">
-  <div id="no-results">
+  <div id="no-results" style="display: none;">
     <span class="emoji">🔍</span>
     <span id="no-res-txt">لا توجد نتائج</span>
   </div>
-</div>
-
+<div class="site-card">
+      <div class="card-img-wrap"><img class="card-img" src="./خارطة الموصل السياحية _ Mosul Tourism Map_files/photo-1488646953014-85cb44e25828" alt="تل نينوى الأثري وأسوارها" onerror="this.src=&#39;https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=640&amp;q=80&#39;"></div>
+      <div class="card-body">
+        <span class="card-category cat-archaeological">أثري</span>
+        <div class="card-name">تل نينوى الأثري وأسوارها</div>
+        <div class="card-desc">عاصمة الإمبراطورية الآشورية وبقايا القصور الملكية والأسوار الضخمة.</div>
+        <div class="card-city">📍 الموصل - الجانب الأيسر</div>
+      </div></div><div class="site-card">
+      <div class="card-img-wrap"><img class="card-img" src="./خارطة الموصل السياحية _ Mosul Tourism Map_files/photo-1488646953014-85cb44e25828" alt="جامع النوري الكبير والمنارة الحدباء" onerror="this.src=&#39;https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=640&amp;q=80&#39;"></div>
+      <div class="card-body">
+        <span class="card-category cat-religious">ديني</span>
+        <div class="card-name">جامع النوري الكبير والمنارة الحدباء</div>
+        <div class="card-desc">موقع ديني وتاريخي بارز أسس في القرن السادس الهجري، ويشتهر بمنارته المائلة.</div>
+        <div class="card-city">📍 الموصل القديمة</div>
+      </div></div><div class="site-card">
+      <div class="card-img-wrap"><img class="card-img" src="./خارطة الموصل السياحية _ Mosul Tourism Map_files/photo-1488646953014-85cb44e25828" alt="كنيسة الطاهرة للساعة" onerror="this.src=&#39;https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=640&amp;q=80&#39;"></div>
+      <div class="card-body">
+        <span class="card-category cat-religious">ديني</span>
+        <div class="card-name">كنيسة الطاهرة للساعة</div>
+        <div class="card-desc">كنيسة تاريخية عريقة تابعة للآباء الدومينيكان، تشتهر ببرج ساعتها الشهير.</div>
+        <div class="card-city">📍 الموصل القديمة</div>
+      </div></div><div class="site-card">
+      <div class="card-img-wrap"><img class="card-img" src="./خارطة الموصل السياحية _ Mosul Tourism Map_files/photo-1488646953014-85cb44e25828" alt="قلعة باشطابيا" onerror="this.src=&#39;https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=640&amp;q=80&#39;"></div>
+      <div class="card-body">
+        <span class="card-category cat-historical">تاريخي</span>
+        <div class="card-name">قلعة باشطابيا</div>
+        <div class="card-desc">حصن دفاعي قديم يعود لعصور إسلامية متعددة، يطل على نهر دجلة.</div>
+        <div class="card-city">📍 الموصل - الجانب الأيسر</div>
+      </div></div><div class="site-card">
+      <div class="card-img-wrap"><img class="card-img" src="./خارطة الموصل السياحية _ Mosul Tourism Map_files/photo-1488646953014-85cb44e25828" alt="قصر قره سراي (القصر الأسود)" onerror="this.src=&#39;https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=640&amp;q=80&#39;"></div>
+      <div class="card-body">
+        <span class="card-category cat-historical">تاريخي</span>
+        <div class="card-name">قصر قره سراي (القصر الأسود)</div>
+        <div class="card-desc">بقايا قصر أتابكي يعود للقرن الثاني عشر، شاهد على عمارة الموصل القديمة.</div>
+        <div class="card-city">📍 الموصل القديمة</div>
+      </div></div><div class="site-card">
+      <div class="card-img-wrap"><img class="card-img" src="./خارطة الموصل السياحية _ Mosul Tourism Map_files/photo-1488646953014-85cb44e25828" alt="جامع النبي يونس" onerror="this.src=&#39;https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=640&amp;q=80&#39;"></div>
+      <div class="card-body">
+        <span class="card-category cat-religious">ديني</span>
+        <div class="card-name">جامع النبي يونس</div>
+        <div class="card-desc">مقام ديني تاريخي مقام على تل نينوى، له أهمية كبيرة لدى المسلمين والمسيحيين.</div>
+        <div class="card-city">📍 الموصل - الجانب الأيسر (نينوى)</div>
+      </div></div><div class="site-card">
+      <div class="card-img-wrap"><img class="card-img" src="./خارطة الموصل السياحية _ Mosul Tourism Map_files/photo-1488646953014-85cb44e25828" alt="متحف الموصل الحضاري" onerror="this.src=&#39;https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=640&amp;q=80&#39;"></div>
+      <div class="card-body">
+        <span class="card-category cat-cultural">ثقافي</span>
+        <div class="card-name">متحف الموصل الحضاري</div>
+        <div class="card-desc">ثاني أكبر متحف في العراق، يضم آثاراً آشورية وحضرية نادرة.</div>
+        <div class="card-city">📍 الموصل - الجانب الأيسر</div>
+      </div></div><div class="site-card">
+      <div class="card-img-wrap"><img class="card-img" src="./خارطة الموصل السياحية _ Mosul Tourism Map_files/photo-1530092285049-1c42085fd395" alt="كورنيش نهر دجلة" onerror="this.src=&#39;https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=640&amp;q=80&#39;"></div>
+      <div class="card-body">
+        <span class="card-category cat-nature">طبيعي</span>
+        <div class="card-name">كورنيش نهر دجلة</div>
+        <div class="card-desc">ممشى نهري يربط بين جانبي المدينة، مكان مفضل للعائلات عند الغروب.</div>
+        <div class="card-city">📍 الموصل - الجانبان</div>
+      </div></div><div class="site-card">
+      <div class="card-img-wrap"><img class="card-img" src="./خارطة الموصل السياحية _ Mosul Tourism Map_files/photo-1481277542470-605612bd2d61" alt="سوق النجارين التراثي" onerror="this.src=&#39;https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=640&amp;q=80&#39;"></div>
+      <div class="card-body">
+        <span class="card-category cat-cultural">ثقافي</span>
+        <div class="card-name">سوق النجارين التراثي</div>
+        <div class="card-desc">سوق تقليدي ضيق الأزقة، يعكس طابع العمارة الموصلية القديمة والحرف اليدوية.</div>
+        <div class="card-city">📍 الموصل القديمة</div>
+      </div></div><div class="site-card">
+      <div class="card-img-wrap"><img class="card-img" src="./خارطة الموصل السياحية _ Mosul Tourism Map_files/photo-1414235077428-338989a2e8c0" alt="مطعم دار الحدباء" onerror="this.src=&#39;https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=640&amp;q=80&#39;"></div>
+      <div class="card-body">
+        <span class="card-category cat-restaurant">مطعم</span>
+        <div class="card-name">مطعم دار الحدباء</div>
+        <div class="card-desc">مطعم يقدم الأكلات الموصلية الشعبية مثل الكبة والباجة بأجواء تراثية.</div>
+        <div class="card-city">📍 الموصل - شارع نينوى</div>
+      </div></div><div class="site-card">
+      <div class="card-img-wrap"><img class="card-img" src="./خارطة الموصل السياحية _ Mosul Tourism Map_files/photo-1551882547-ff40c63fe5fa" alt="فندق نينوى الذهبي" onerror="this.src=&#39;https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=640&amp;q=80&#39;"></div>
+      <div class="card-body">
+        <span class="card-category cat-hotel">فندق</span>
+        <div class="card-name">فندق نينوى الذهبي</div>
+        <div class="card-desc">فندق ثلاث نجوم يقدم إقامة مريحة قريبة من المعالم السياحية الرئيسية.</div>
+        <div class="card-city">📍 الموصل - الجانب الأيمن</div>
+      </div></div></div>
 <!-- STATS -->
 <section id="stats">
   <div class="stat">
-    <span class="stat-num" id="stat-sites">0</span>
+    <span class="stat-num" id="stat-sites">11</span>
     <div class="stat-lbl" id="stat-lbl1">موقعاً سياحياً وأثرياً</div>
   </div>
   <div class="stat">
@@ -331,33 +402,21 @@
     <div class="stat-lbl" id="stat-lbl4">مواقع مرشّحة للتراث العالمي</div>
   </div>
 </section>
-
-<!-- FOOTER WITH SOCIALS AND VISITOR COUNTER -->
+<!-- FOOTER WITH SOCIALS -->
 <div class="footer-container">
-  
-  <div class="visitor-counter">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-    <span id="visitor-title">عدد زوار الموقع:</span>
-    
-    <!-- 🟢 العداد الحقيقي الجديد المعتمد كصورة ذكية تحسب الزيارات بشكل دائم وموحد للكل 🟢 -->
-    <img src="https://profile-counter.glitch.me/mosul_tourism_map_2026/count.svg" alt="Visitor Count">
-  </div>
-
   <div class="social-links">
     <a href="https://www.facebook.com/share/1cYUdbxCHJ/" target="_blank" class="social-icon">Facebook</a>
     <a href="https://www.instagram.com/mualbek?igsh=MWkweG5wbGRrbmh2MQ==" target="_blank" class="social-icon">Instagram</a>
-    <a href="https://www.linkedin.com/in/%D9%85%D8%B5%D8%B7%D9%81%D9%89-%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D9%85%D8%B5%D8%B7%D9%81%D9%89-%D8%A7%D9%84%D8%A8%D9%83-300807317?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-icon">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/%D9%85%D8%B5%D8%B7%D9%81%D9%89-%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D9%85%D8%B5%D8%B7%D9%81%D9%89-%D8%A7%D9%84%D8%A8%D9%83-300807317?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" class="social-icon">LinkedIn</a>
   </div>
-
   <footer>
-    <div id="footer-txt">جميع الحقوق محفوظة © — تفتح الخرائط في تطبيق Google Maps</div>
+    <div id="footer-txt">جميع الحقوق محفوظة © نينوى السياحية 2026 — تفتح الخرائط في تطبيق Google Maps</div>
   </footer>
 </div>
-
 <!-- MODAL -->
 <div id="modal-overlay" onclick="closeModal(event)">
   <div id="modal-box">
-    <img id="modal-img" src="" alt="Site Image">
+    <img id="modal-img" src="file:///C:/Users/BYTNA%20MOSUL/Downloads/mosul-tourism-map_4.html" alt="Site Image">
     <div id="modal-content">
       <div id="modal-cat"></div>
       <div id="modal-name"></div>
@@ -372,72 +431,146 @@
     </div>
   </div>
 </div>
-
 <script>
+/* ════════════════════════════════════════════════════════
+   👇 هنا تضيف أي موقع جديد: انسخ كائناً كاملاً، عدّل القيم،
+   وأضفه قبل علامة ] في نهاية المصفوفة (لا تنسَ الفاصلة).
+   cat يجب أن تكون واحدة من:
+   archaeological | historical | religious | nature | cultural | restaurant | hotel
+   ════════════════════════════════════════════════════════ */
 const SITES = [
   {
-    id: 1, 
+    id: 1,
     cat: 'archaeological',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Nineveh_walls.jpg/640px-Nineveh_walls.jpg', 
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Nineveh_walls.jpg/640px-Nineveh_walls.jpg',
     ar: { name: 'تل نينوى الأثري وأسوارها', city: 'الموصل - الجانب الأيسر', desc: 'عاصمة الإمبراطورية الآشورية وبقايا القصور الملكية والأسوار الضخمة.' },
     en: { name: 'Nineveh Archaeological Tell & Walls', city: 'Mosul - Left Bank', desc: 'The ancient capital of the Assyrian empire, containing royal palaces and massive walls.' },
     lat: 36.3614, lng: 43.1525
   },
   {
-    id: 2, 
-    cat: 'religious', 
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Al-Nuri_Mosque_reconstruction_2022.jpg/640px-Al-Nuri_Mosque_reconstruction_2022.jpg', 
+    id: 2,
+    cat: 'religious',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Al-Nuri_Mosque_reconstruction_2022.jpg/640px-Al-Nuri_Mosque_reconstruction_2022.jpg',
     ar: { name: 'جامع النوري الكبير والمنارة الحدباء', city: 'الموصل القديمة', desc: 'موقع ديني وتاريخي بارز أسس في القرن السادس الهجري، ويشتهر بمنارته المائلة.' },
     en: { name: 'Al-Nuri Grand Mosque & Al-Hadba Minaret', city: 'Old Mosul', desc: 'A prominent religious and historical site famous for its unique leaning minaret.' },
     lat: 36.3411, lng: 43.1331
   },
   {
-    id: 3, 
-    cat: 'religious', 
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Our_Lady_of_the_Hour_Church_2019.jpg/640px-Our_Lady_of_the_Hour_Church_2019.jpg', 
+    id: 3,
+    cat: 'religious',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Our_Lady_of_the_Hour_Church_2019.jpg/640px-Our_Lady_of_the_Hour_Church_2019.jpg',
     ar: { name: 'كنيسة الطاهرة للساعة', city: 'الموصل القديمة', desc: 'كنيسة تاريخية عريقة تابعة للآباء الدومينيكان، تشتهر ببرج ساعتها الشهير.' },
     en: { name: 'Our Lady of the Hour Church (Al-Saa)', city: 'Old Mosul', desc: 'An ancient historic church famous for its iconic clock tower.' },
     lat: 36.3401, lng: 43.1278
+  },
+  {
+    id: 4,
+    cat: 'historical',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Bash_Tabia_Castle.jpg/640px-Bash_Tabia_Castle.jpg',
+    ar: { name: 'قلعة باشطابيا', city: 'الموصل - الجانب الأيسر', desc: 'حصن دفاعي قديم يعود لعصور إسلامية متعددة، يطل على نهر دجلة.' },
+    en: { name: 'Bash Tabia Castle', city: 'Mosul - Left Bank', desc: 'An ancient defensive fortress from various Islamic eras, overlooking the Tigris River.' },
+    lat: 36.3463, lng: 43.1392
+  },
+  {
+    id: 5,
+    cat: 'historical',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Qara_Saray.jpg/640px-Qara_Saray.jpg',
+    ar: { name: 'قصر قره سراي (القصر الأسود)', city: 'الموصل القديمة', desc: 'بقايا قصر أتابكي يعود للقرن الثاني عشر، شاهد على عمارة الموصل القديمة.' },
+    en: { name: 'Qara Saray (Black Palace)', city: 'Old Mosul', desc: 'Remains of a 12th-century Atabeg palace, a witness to old Mosul architecture.' },
+    lat: 36.3445, lng: 43.1265
+  },
+  {
+    id: 6,
+    cat: 'religious',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mosque_of_the_Prophet_Yunus.jpg/640px-Mosque_of_the_Prophet_Yunus.jpg',
+    ar: { name: 'جامع النبي يونس', city: 'الموصل - الجانب الأيسر (نينوى)', desc: 'مقام ديني تاريخي مقام على تل نينوى، له أهمية كبيرة لدى المسلمين والمسيحيين.' },
+    en: { name: 'Mosque of the Prophet Yunus (Jonah)', city: 'Mosul - Left Bank (Nineveh)', desc: 'A historic religious shrine on the Nineveh tell, significant to both Muslims and Christians.' },
+    lat: 36.3596, lng: 43.1543
+  },
+  {
+    id: 7,
+    cat: 'cultural',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Mosul_Museum.jpg/640px-Mosul_Museum.jpg',
+    ar: { name: 'متحف الموصل الحضاري', city: 'الموصل - الجانب الأيسر', desc: 'ثاني أكبر متحف في العراق، يضم آثاراً آشورية وحضرية نادرة.' },
+    en: { name: 'Mosul Cultural Museum', city: 'Mosul - Left Bank', desc: 'The second-largest museum in Iraq, housing rare Assyrian and Hatrene artifacts.' },
+    lat: 36.3441, lng: 43.1397
+  },
+  {
+    id: 8,
+    cat: 'nature',
+    image: 'https://images.unsplash.com/photo-1530092285049-1c42085fd395?auto=format&fit=crop&w=640&q=80',
+    ar: { name: 'كورنيش نهر دجلة', city: 'الموصل - الجانبان', desc: 'ممشى نهري يربط بين جانبي المدينة، مكان مفضل للعائلات عند الغروب.' },
+    en: { name: 'Tigris River Corniche', city: 'Mosul - Both Banks', desc: 'A riverside promenade connecting both sides of the city, popular at sunset.' },
+    lat: 36.3489, lng: 43.1380
+  },
+  {
+    id: 9,
+    cat: 'cultural',
+    image: 'https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=640&q=80',
+    ar: { name: 'سوق النجارين التراثي', city: 'الموصل القديمة', desc: 'سوق تقليدي ضيق الأزقة، يعكس طابع العمارة الموصلية القديمة والحرف اليدوية.' },
+    en: { name: 'Al-Najjarin Heritage Market', city: 'Old Mosul', desc: 'A traditional narrow-alley market reflecting old Mosul architecture and handicrafts.' },
+    lat: 36.3420, lng: 43.1300
+  },
+
+  /* ───── مطعم تجريبي (مثال) ───── */
+  {
+    id: 10,
+    cat: 'restaurant',
+    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=640&q=80',
+    ar: { name: 'مطعم دار الحدباء', city: 'الموصل - شارع نينوى', desc: 'مطعم يقدم الأكلات الموصلية الشعبية مثل الكبة والباجة بأجواء تراثية.' },
+    en: { name: 'Dar Al-Hadba Restaurant', city: 'Mosul - Nineveh Street', desc: 'Serves traditional Mosul dishes like Kubba and Pacha in a heritage atmosphere.' },
+    lat: 36.3450, lng: 43.1310
+  },
+
+  /* ───── فندق تجريبي (مثال) ───── */
+  {
+    id: 11,
+    cat: 'hotel',
+    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=640&q=80',
+    ar: { name: 'فندق نينوى الذهبي', city: 'الموصل - الجانب الأيمن', desc: 'فندق ثلاث نجوم يقدم إقامة مريحة قريبة من المعالم السياحية الرئيسية.' },
+    en: { name: 'Nineveh Gold Hotel', city: 'Mosul - Right Bank', desc: 'A 3-star hotel offering comfortable stays close to major tourist sites.' },
+    lat: 36.3380, lng: 43.1190
   }
 ];
-
 const T = {
   ar:{
     badge:'محافظة نينوى • العراق', heroTitle:'الموصل', heroSub:'حضارة تمتد لآلاف السنين — اكتشف المواقع الأثرية والسياحية في قلب الحدباء',
-    scrollTxt:'اكتشف المواقع', searchPh:'ابحث عن موقع...', fAll:'الكل', fArch:'أثري', fHist:'تاريخي', fRel:'ديني', fNat:'طبيعي', fCult:'ثقافي',
-    secTitle:'المواقع الأثرية والسياحية', secSub:'اضغط على أي موقع لفتحه في خرائط Google', catArch:'أثري', catHist:'تاريخي', catRel:'ديني', catNat:'طبيعي', catCult:'ثقافي',
-    openMap:'فتح في خرائط Google', closeBtn:'إغلاق', visitBtn:'افتح في خرائط Google', noRes:'لا توجد نتائج مطابقة', statLbl1:'موقعاً سياحياً وأثرياً',
-    statLbl2:'سنة من الحضارة', statLbl3:'جانبي المدينة (الأيمن والأيسر)', statLbl4:'مواقع مرشّحة للتراث العالمي', footer:'جميع الحقوق محفوظة © نينوى السياحية 2026 — تفتح الخرائط في تطبيق Google Maps', langLbl:'اللغة:', visitorTitle:'عدد زوار الموقع:'
+    scrollTxt:'اكتشف المواقع', searchPh:'ابحث عن موقع...', fAll:'الكل', fArch:'أثري', fHist:'تاريخي', fRel:'ديني', fNat:'طبيعي', fCult:'ثقافي', fFood:'مطاعم', fStay:'فنادق',
+    secTitle:'المواقع الأثرية والسياحية', secSub:'اضغط على أي موقع لفتحه في خرائط Google',
+    catArchaeological:'أثري', catHistorical:'تاريخي', catReligious:'ديني', catNature:'طبيعي', catCultural:'ثقافي', catRestaurant:'مطعم', catHotel:'فندق',
+    openMap:'فتح في خرائط Google', closeBtn:'إغلاق', noRes:'لا توجد نتائج مطابقة', statLbl1:'موقعاً سياحياً وأثرياً',
+    statLbl2:'سنة من الحضارة', statLbl3:'جانبي المدينة (الأيمن والأيسر)', statLbl4:'مواقع مرشّحة للتراث العالمي',
+    footer:'جميع الحقوق محفوظة © نينوى السياحية 2026 — تفتح الخرائط في تطبيق Google Maps', langLbl:'اللغة:'
   },
   en:{
     badge:'Nineveh Governorate • Iraq', heroTitle:'Mosul', heroSub:'A civilization spanning thousands of years — discover archaeological and tourist sites in the heart of Al-Hadbaa',
-    scrollTxt:'Explore Sites', searchPh:'Search for a site...', fAll:'All', fArch:'Archaeological', fHist:'Historical', fRel:'Religious', fNat:'Nature', fCult:'Cultural',
-    secTitle:'Archaeological & Tourist Sites', secSub:'Tap any site to open it in Google Maps', catArch:'Archaeological', catHist:'Historical', catRel:'Religious', catNat:'Nature', catCult:'Cultural',
-    openMap:'Open in Google Maps', closeBtn:'Close', visitBtn:'Open in Google Maps', noRes:'No matching sites found', statLbl1:'Tourist & Archaeological Sites',
-    statLbl2:'Years of Civilization', statLbl3:'Both Banks (Left & Right)', statLbl4:'UNESCO Heritage Nominees', footer:'All rights reserved © Nineveh Tourism 2026 — Maps open in Google Maps app', langLbl:'Language:', visitorTitle:'Visitor Counter:'
+    scrollTxt:'Explore Sites', searchPh:'Search for a site...', fAll:'All', fArch:'Archaeological', fHist:'Historical', fRel:'Religious', fNat:'Nature', fCult:'Cultural', fFood:'Restaurants', fStay:'Hotels',
+    secTitle:'Archaeological & Tourist Sites', secSub:'Tap any site to open it in Google Maps',
+    catArchaeological:'Archaeological', catHistorical:'Historical', catReligious:'Religious', catNature:'Nature', catCultural:'Cultural', catRestaurant:'Restaurant', catHotel:'Hotel',
+    openMap:'Open in Google Maps', closeBtn:'Close', noRes:'No matching sites found', statLbl1:'Tourist & Archaeological Sites',
+    statLbl2:'Years of Civilization', statLbl3:'Both Banks (Left & Right)', statLbl4:'UNESCO Heritage Nominees',
+    footer:'All rights reserved © Nineveh Tourism 2026 — Maps open in Google Maps app', langLbl:'Language:'
   }
 };
-
 let lang = 'ar';
 let activeFilter = 'all';
 let currentSite = null;
-
-const catColors = { archaeological:'cat-archaeological', historical:'cat-historical', religious:'cat-religious', nature:'cat-nature', cultural:'cat-cultural' };
-
+const catColors = {
+  archaeological:'cat-archaeological', historical:'cat-historical', religious:'cat-religious',
+  nature:'cat-nature', cultural:'cat-cultural', restaurant:'cat-restaurant', hotel:'cat-hotel'
+};
 function getLangData(site){ return site[lang]; }
-
+function catKey(cat){ return 'cat' + cat.charAt(0).toUpperCase() + cat.slice(1); }
 function renderCards(sites){
   const grid = document.getElementById('sites-grid');
   const noRes = document.getElementById('no-results');
   const t = T[lang];
   Array.from(grid.querySelectorAll('.site-card')).forEach(c=>c.remove());
-
   if(!sites.length){ noRes.style.display='block'; noRes.querySelector('#no-res-txt').textContent = t.noRes; return; }
   noRes.style.display='none';
-
   sites.forEach(site=>{
     const d = getLangData(site);
-    const catLabel = t['cat'+site.cat.charAt(0).toUpperCase()+site.cat.slice(1)] || site.cat;
+    const catLabel = t[catKey(site.cat)] || site.cat;
     const card = document.createElement('div');
     card.className='site-card';
     const fallbackImg = "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=640&q=80";
@@ -453,7 +586,6 @@ function renderCards(sites){
     grid.appendChild(card);
   });
 }
-
 function getFiltered(){
   const query = document.getElementById('search-input').value.trim().toLowerCase();
   return SITES.filter(s=>{
@@ -461,13 +593,11 @@ function getFiltered(){
     return (activeFilter==='all' || s.cat===activeFilter) && (!query || d.name.toLowerCase().includes(query) || d.city.toLowerCase().includes(query));
   });
 }
-
 function setFilter(cat, btn){ activeFilter = cat; document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); renderCards(getFiltered()); }
 document.getElementById('search-input').addEventListener('input', ()=>renderCards(getFiltered()));
-
 function openModal(site){
   currentSite = site; const d = getLangData(site); const t = T[lang];
-  const catLabel = t['cat'+site.cat.charAt(0).toUpperCase()+site.cat.slice(1)] || site.cat;
+  const catLabel = t[catKey(site.cat)] || site.cat;
   const fallbackImg = "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=640&q=80";
   document.getElementById('modal-img').src = site.image || fallbackImg;
   document.getElementById('modal-cat').innerHTML = `<span class="card-category ${catColors[site.cat]}">${catLabel}</span>`;
@@ -479,26 +609,26 @@ function openModal(site){
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
-
 function closeModal(e){ if(e && e.target !== document.getElementById('modal-overlay') && e.type==='click') return; document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow=''; }
 function openMap(){ if(!currentSite) return; window.open(`https://www.google.com/maps/search/?api=1&query=${currentSite.lat},${currentSite.lng}`,'_blank'); }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
-
 function setLang(l){
   lang = l; const t = T[l]; document.documentElement.lang = l; document.documentElement.dir = l==='ar'?'rtl':'ltr'; document.body.classList.toggle('en', l==='en');
   document.getElementById('hero-badge').textContent = t.badge; document.getElementById('hero-title').textContent = t.heroTitle; document.getElementById('hero-sub').textContent = t.heroSub;
   document.getElementById('scroll-txt').textContent = t.scrollTxt; document.getElementById('search-input').placeholder = t.searchPh; document.getElementById('f-all').textContent = t.fAll;
   document.getElementById('f-arch-lbl').textContent = t.fArch; document.getElementById('f-hist-lbl').textContent = t.fHist; document.getElementById('f-rel-lbl').textContent = t.fRel;
-  document.getElementById('f-nat-lbl').textContent = t.fNat; document.getElementById('f-cult-lbl').textContent = t.fCult; document.getElementById('sec-title').textContent = t.secTitle;
-  document.getElementById('sec-sub').textContent = t.secSub; document.getElementById('stat-lbl1').textContent = t.statLbl1; document.getElementById('stat-lbl2').textContent = t.statLbl2;
-  document.getElementById('stat-lbl3').textContent = t.statLbl3; document.getElementById('stat-lbl4').textContent = t.statLbl4; document.getElementById('footer-txt').textContent = t.footer;
-  document.getElementById('lang-label').textContent = t.langLbl; document.getElementById('visitor-title').textContent = t.visitorTitle;
+  document.getElementById('f-nat-lbl').textContent = t.fNat; document.getElementById('f-cult-lbl').textContent = t.fCult;
+  document.getElementById('f-food-lbl').textContent = t.fFood; document.getElementById('f-stay-lbl').textContent = t.fStay;
+  document.getElementById('sec-title').textContent = t.secTitle; document.getElementById('sec-sub').textContent = t.secSub;
+  document.getElementById('stat-lbl1').textContent = t.statLbl1; document.getElementById('stat-lbl2').textContent = t.statLbl2;
+  document.getElementById('stat-lbl3').textContent = t.statLbl3; document.getElementById('stat-lbl4').textContent = t.statLbl4;
+  document.getElementById('footer-txt').textContent = t.footer; document.getElementById('lang-label').textContent = t.langLbl;
   document.getElementById('hero-title').className = l==='ar'?'hero-title-ar':'hero-title-en';
   document.getElementById('btn-ar').classList.toggle('active', l==='ar'); document.getElementById('btn-en').classList.toggle('active', l==='en');
   renderCards(getFiltered());
 }
-
 renderCards(SITES); document.getElementById('stat-sites').textContent = SITES.length;
 </script>
-</body>
-</html>
+
+
+</body></html>
